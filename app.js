@@ -1,47 +1,4 @@
-function changeFunc(id){
-    var selectBox = getById('shipSelect');
-    var size = selectBox.options[selectBox.selectedIndex].value;
-    var html = "<option disabled selected label=' '></option>";
-    for (var i = 1; i < size; i++) {
-        html += "<option value =" + i + ">" + i + "</option>\n";
-    }
-    getById('shipSelect').innerHTML=html;
-}
 
-function changeShipNumber(id) {
-    var sizeSelectBox = getById('boardSize');
-    var size = sizeSelectBox.options[sizeSelectBox.selectedIndex].value;
-    var shipsSelectBox = getById(id);
-    var ships = shipsSelectBox.options[shipsSelectBox.selectedIndex].value;
-    initialize(size, ships);
-    buildBoard("myBoard", size);
-    buildBoard("compBoard", size);
- 
-}
-
-function buildBoard(id, size){
-    var html = "";
-    var i, j;
-    html += "<table>";
-    for (i = 0; i < parseInt(size); i++) {
-        html += "<tr>";
-        for (j = 0; j < parseInt(size); j++){
-            html += "<td class='board'";
-            html += " onclick='makeMove(" + id + "," + i + ", " + j + ")'";
-            html += " id='" + id + i + j +"'>";
-            if (myPositions[i][j] == 1) {
-                html += "x";
-            }
-            html += "</td>";
-        }
-        html += "</tr>";
-    }
-    html += "</table>";
-    console.log(html);
-    document.getElementById(id).innerHTML=html;
-}
-    
-/*
 var myPositions = [];
 var opponentPosition = [];
 var possibilities = [];
@@ -70,7 +27,6 @@ function removePlace(place) {
  
         }
     }
- 
  
 }
  
@@ -162,6 +118,7 @@ function buildBoard(id, size){
     html += "</table>";
     getById(id).innerHTML=html;
 }
+
 
 /*
 function hideGameElements() {
