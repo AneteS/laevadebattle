@@ -1,3 +1,13 @@
+function changeFunc(id){
+    var selectBox = getById(id);
+    var size = selectBox.options[selectBox.selectedIndex].value;
+    var html = "<option disabled selected label=' '></option>";
+    for (var i = 1; i < size; i++) {
+        html += "<option value =" + i + ">" + i + "</option>\n";
+    }
+    getById('shipSelect').innerHTML=html;
+}
+
 function buildBoard(id, size){
     var html = "";
     var i, j;
@@ -16,6 +26,7 @@ function buildBoard(id, size){
         html += "</tr>";
     }
     html += "</table>";
+    console.log(html);
     document.getElementById(id).innerHTML=html;
 }
     
