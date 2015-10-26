@@ -15,10 +15,10 @@
       <h1>Battleship</h1>
     </header>
     
-    <section>
-	    <center>
+	<section>
+		<center>
 	    
-	    	<div id="selection">
+	    	<div id="selectionField">
 				<p>Select board size:</p>
 					<div>
 						<select id="boardSize" onchange="changeFunc('boardSize')">
@@ -38,20 +38,22 @@
 							<option disabled selected label=" "></option>
             			</select>
         			</div>
-	    	
-	    	
-			    <div id="myBoard"></div>
-			    <div id="compBoard"></div>
 		
 				<div>
 				<input type = "button" id = "newGameButton" class="myButton" onclick = "newGame();"
 					value= "New Game">
 				</div>
-		
 			</div>
 
+
+
+			<div id="gameField">
+				<div id="myBoard"></div>
+			    <div id="compBoard"></div>
+			</div>
+			
 		</center>
-</section>
+	</section>
 
  
 

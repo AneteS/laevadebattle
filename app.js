@@ -94,7 +94,6 @@ function changeShipNumber(id) {
     var size = sizeSelectBox.options[sizeSelectBox.selectedIndex].value;
     var shipsSelectBox = getById(id);
     var ships = shipsSelectBox.options[shipsSelectBox.selectedIndex].value;
-    initialize(size, ships);
  
 }
  
@@ -121,13 +120,14 @@ function buildBoard(id, size){
 
 function newGame(){
 	hideGameElements();
+	initialize(size, ships);
 	buildBoard("myBoard", size);
     buildBoard("compBoard", size);
 }
 
 function hideGameElements(){
-	document.getElementById("selection").innerHTML = selection;
-	document.getElementById("selection").style.display="none";
+	document.getElementById("selectionField").innerHTML = selectionField;
+	document.getElementById("selectionField").style.display="none";
 
 }
 
