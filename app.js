@@ -1,11 +1,22 @@
 function changeFunc(id){
-    var selectBox = getById(id);
+    var selectBox = getById('shipSelect');
     var size = selectBox.options[selectBox.selectedIndex].value;
     var html = "<option disabled selected label=' '></option>";
     for (var i = 1; i < size; i++) {
         html += "<option value =" + i + ">" + i + "</option>\n";
     }
     getById('shipSelect').innerHTML=html;
+}
+
+function changeShipNumber(id) {
+    var sizeSelectBox = getById('boardSize');
+    var size = sizeSelectBox.options[sizeSelectBox.selectedIndex].value;
+    var shipsSelectBox = getById(id);
+    var ships = shipsSelectBox.options[shipsSelectBox.selectedIndex].value;
+    initialize(size, ships);
+    buildBoard("myBoard", size);
+    buildBoard("compBoard", size);
+ 
 }
 
 function buildBoard(id, size){
