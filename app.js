@@ -64,6 +64,7 @@ function setShips(size, ships, board) {
         }
     }
 }
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -94,8 +95,6 @@ function changeShipNumber(id) {
     var shipsSelectBox = getById(id);
     var ships = shipsSelectBox.options[shipsSelectBox.selectedIndex].value;
     initialize(size, ships);
-    buildBoard("myBoard", size);
-    buildBoard("compBoard", size);
  
 }
  
@@ -120,7 +119,11 @@ function buildBoard(id, size){
     getById(id).innerHTML=html;
 }
 
-
+function newGame(){
+	hideGameElements();
+	buildBoard("myBoard", size);
+    buildBoard("compBoard", size);
+}
 /*
 function hideGameElements() {
 	document.getElementById("myBoard").innerHTML = myBoard;
