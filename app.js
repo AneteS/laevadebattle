@@ -17,6 +17,7 @@ function initialize(size, ships) {
  
     setShips(size, ships, "my");
 }
+
 function removePlace(place) {
  
     for (var i = 0; i < possibilities.length; i++) {
