@@ -124,6 +124,13 @@ function newGame(){
 	buildBoard("myBoard", size);
     buildBoard("compBoard", size);
 }
+
+function hideGameElements(){
+	document.getElementById("selection").innerHTML = selection;
+	document.getElementById("selection").style.display="none";
+
+}
+
 /*
 function hideGameElements() {
 	document.getElementById("myBoard").innerHTML = myBoard;
