@@ -1,4 +1,3 @@
-
 var myPositions = [];
 var opponentPosition = [];
 var possibilities = [];
@@ -113,7 +112,7 @@ function setShips(size, ships, board) {
             break;
         }
         randomPosition = getRandomInt(0, possibilities.length - 1);
-        alert("randoPos: " + randomPosition + "; Pssibilities: " + possibilities[randomPosition]);
+        //alert("randoPos: " + randomPosition + "; Pssibilities: " + possibilities[randomPosition]);
         x = possibilities[randomPosition][0];
         y = possibilities[randomPosition][1];
         removePlace([y, x]);
@@ -132,8 +131,14 @@ function setShips(size, ships, board) {
             myPositions[y][x] = 1;
             myPositions[y][x+1] = 1;
         }
+        
+        if (board == "my") {
+            myPositions[y][x] = 1;
+            myPositions[y][x+1] = 1;
+        }
     }
 }
+
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -143,7 +148,6 @@ function getRandomInt(min, max) {
  
 function makeMove(tableid, row, column){
     var cid = (tableid.id + row) + column;
-    getById(cid).innerHTML="*";
     getById(cid).style.backgroundColor="#999999";
 }
 
