@@ -22,25 +22,28 @@ section {
   padding: 15px;
 }
 
-
-.cell {display:table-cell; 
+ /*
+.cell {
+	display:table-cell; 
     border-right: 1px solid #000000; 
     border-bottom: 1px solid #000000; 
     width: 30px; height: 20px;
 }
+
 .row {
     display:table-row; 
     clear: both; 
     overflow: hidden;
 }
+
 .table {
     display:table; 
     border-left: 1px solid #000000;
     border-top: 1px solid #000000;
-    display:table;
 }
 
-/*
+*/
+
 table {
     border: 0px solid grey;
     border-collapse: collapse;
@@ -48,13 +51,16 @@ table {
 
 td {
     padding: 7px;
+    width: 20px; 
+    height: 20px;
+    
 }
 
 a:hover {
     background-color: #cccccc;
     padding: 5px;
 }
-*/
+
 
 .myBoard {
     display: inline-block;
@@ -65,6 +71,7 @@ a:hover {
     display: inline-block;
     margin: 30px;
 }
+
 
 .myButton {
   -webkit-border-radius: 0;

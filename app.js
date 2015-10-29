@@ -46,7 +46,7 @@ function changeShipNumber(id) {
 function buildBoard(id, size){
     var html = "";
     var i, j;
-    html += "<table>";
+    html += "<table border='1'>";
     for (i = 0; i < parseInt(size); i++) {
         html += "<tr>";
         for (j = 0; j < parseInt(size); j++){
@@ -55,6 +55,9 @@ function buildBoard(id, size){
             html += " id='" + id + i + j +"'>";
             if (myPositions[i][j] == 1) {
                 html += "x";
+            }
+            else {
+	            html +="&nbsp";
             }
             html += "</td>";
         }
@@ -110,7 +113,7 @@ function setShips(size, ships, board) {
             break;
         }
         randomPosition = getRandomInt(0, possibilities.length - 1);
-        alert(randomPosition + " " + possibilities[randomPosition]);
+        alert("randoPos: " + randomPosition + "; Pssibilities: " + possibilities[randomPosition]);
         x = possibilities[randomPosition][0];
         y = possibilities[randomPosition][1];
         removePlace([y, x]);
