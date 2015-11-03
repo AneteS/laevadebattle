@@ -1,22 +1,23 @@
 var myPositions = [];
-var opponentPosition = [];
+var compPosition = [];
 var possibilities = [];
 
 
 function initialize(size, ships) {
     for (var i = 0; i < size; i++) {
         myPositions[i] = [];
-        opponentPosition[i] = [];
+        compPosition[i] = [];
         for (var j = 0; j < size; j++) {
             if (i != size -1) {
                 possibilities.push([i, j]);
             }
             myPositions[i][j] = 0;
-            opponentPosition[i][j] = 0;
+            compPosition[i][j] = 0;
         }
     }
  
     setShips(size, ships, "my");
+    setShips(size, ships, "comp");
 }
 
  
@@ -29,6 +30,7 @@ function changeFunc(id){
     }
     getById('shipSelect').innerHTML=html;
 }
+
  
 function changeShipNumber(id) {
     var sizeSelectBox = getById('boardSize');
@@ -41,6 +43,7 @@ function changeShipNumber(id) {
     buildBoard("compBoard", size);
 	
 }
+
  
 function buildBoard(id, size){
     var html = "";
@@ -66,20 +69,13 @@ function buildBoard(id, size){
     getById(id).innerHTML=html;
 }
 
-/*
-function newGame(){
-	hideGameElements();
-	initialize(size, ships);
-	buildBoard("myBoard", size);
-    buildBoard("compBoard", size);
-}
-*/
 
 function hideGameElements(){
 	document.getElementById("selectionField").innerHTML = selectionField;
 	document.getElementById("selectionField").style.display="none";
 
 }
+
 
 function getById(x) {
     return document.getElementById(x);
@@ -97,7 +93,6 @@ function removePlace(place) {
  
         }
     }
- 
 }
  
  
@@ -112,7 +107,7 @@ function setShips(size, ships, board) {
             break;
         }
         randomPosition = getRandomInt(0, possibilities.length - 1);
-        //alert("randoPos: " + randomPosition + "; Pssibilities: " + possibilities[randomPosition]);
+        //alert("randoPos: " + randomPosition + "; Possibilities: " + possibilities[randomPosition]);
         x = possibilities[randomPosition][0];
         y = possibilities[randomPosition][1];
         removePlace([y, x]);
@@ -132,9 +127,9 @@ function setShips(size, ships, board) {
             myPositions[y][x+1] = 1;
         }
         
-        if (board == "my") {
-            myPositions[y][x] = 1;
-            myPositions[y][x+1] = 1;
+        if (board == "comp") {
+            myPositions[y][x] = 2;
+            myPositions[y][x+1] = 2;
         }
     }
 }
@@ -143,8 +138,6 @@ function setShips(size, ships, board) {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
- 
-
  
 function makeMove(tableid, row, column){
     var cid = (tableid.id + row) + column;
@@ -160,22 +153,6 @@ function hideGameElements() {
   document.getElementById("myBoard").style.display="none";
   document.getElementById("computerBoard").style.display="none";
 }
-
-
-  function xIs3() {
-  	pcMaxScoreX = 10;
-  	showGameElements();
-  }
-
-  function xIs6() {
-  	pcMaxScoreX = 15;
-  	showGameElements();
-  }
-
-  function xIs9() {
-  	pcMaxScoreX = 20;
-  	showGameElements();
-  }
 
 
 
