@@ -37,12 +37,20 @@ function changeShipNumber(id) {
     var size = sizeSelectBox.options[sizeSelectBox.selectedIndex].value;
     var shipsSelectBox = getById(id);
     var ships = shipsSelectBox.options[shipsSelectBox.selectedIndex].value;
-    hideGameElements();
+	hideGameElements();
 	initialize(size, ships);
 	buildBoard("myBoard", size);
     buildBoard("compBoard", size);
-	
 }
+
+/*
+function startGame(){
+	hideGameElements();
+	initialize(size, ships);
+	buildBoard("myBoard", size);
+    buildBoard("compBoard", size);
+}
+*/
 
  
 function buildBoard(id, size){
@@ -70,11 +78,13 @@ function buildBoard(id, size){
 }
 
 
+
 function hideGameElements(){
 	document.getElementById("selectionField").innerHTML = selectionField;
 	document.getElementById("selectionField").style.display="none";
 
 }
+
 
 
 function getById(x) {
@@ -138,6 +148,7 @@ function setShips(size, ships, board) {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+ 
  
 function makeMove(tableid, row, column){
     var cid = (tableid.id + row) + column;
